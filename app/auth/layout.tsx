@@ -1,7 +1,5 @@
 import { EnvVarWarning } from "@/components/env-var-warning";
-import { AuthButton } from "@/components/auth-button";
 import { hasEnvVars } from "@/lib/utils";
-import { Suspense } from "react";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export default function AuthLayout({

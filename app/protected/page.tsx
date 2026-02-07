@@ -1,17 +1,18 @@
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
+import AddButton from "@/components/add-button";
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 
-async function UserDetails() {
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.getClaims();
+// async function UserDetails() {
+//   const supabase = await createClient();
+//   const { data, error } = await supabase.auth.getClaims();
 
-  if (error || !data?.claims) {
-    redirect("/auth/login");
-  }
+//   if (error || !data?.claims) {
+//     redirect("/auth/login");
+//   }
 
-  return JSON.stringify(data.claims, null, 2);
-}
+//   return JSON.stringify(data.claims, null, 2);
+// }
 
 async function JobApplications() {
   const supabase = await createClient();
@@ -24,7 +25,7 @@ async function JobApplications() {
 
 export default function ProtectedPage() {
   return (
-    <div className="flex flex-col gap-12 border-2 border-black">
+    <div className="relative flex flex-col gap-12 border-2 border-black min-h-screen">
       {/* <div className="flex flex-col gap-2 items-start">
         <h2 className="font-bold text-2xl mb-4">Your user details</h2>
         <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
@@ -38,6 +39,9 @@ export default function ProtectedPage() {
           <JobApplications />
         </Suspense>
       </div>
+      <AddButton 
+      size={50}
+      className={"text-[var(--fg)] absolute bottom-24 right-4 bg-clip-text"}/>
     </div>
   );
 }
