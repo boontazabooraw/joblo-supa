@@ -4,6 +4,12 @@ import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "./ui/input";
 import * as RadioGroup from "@radix-ui/react-radio-group";
+import * as Select from "@radix-ui/react-select";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@radix-ui/react-icons";
 
 export default function AddForm({
   className,
@@ -40,7 +46,7 @@ export default function AddForm({
             placeholder="https://danvillejobs.com"
           />
         </div>
-        <div>
+        <div className="workmode-wrapper">
           <RadioGroup.Root>
             <div>
               <RadioGroup.Item
@@ -67,6 +73,34 @@ export default function AddForm({
               </label>
             </div>
           </RadioGroup.Root>
+        </div>
+        <div className="workplacetype-wrapper">
+          <Select.Root>
+            <Select.Trigger
+              className="SelectTrigger"
+              aria-label="Work Arrangement"
+            >
+              <Select.Value placeholder="Select workplace type..." />
+              <Select.Icon className="SelectIcon">
+                <ChevronDownIcon />
+              </Select.Icon>
+            </Select.Trigger>
+            <Select.Portal>
+              <Select.Content className="SelectContent">
+                <Select.ScrollUpButton className="SelectScrollButton">
+                  <ChevronUpIcon />
+                </Select.ScrollUpButton>
+                <Select.Viewport className="SelectViewport">
+                  <Select.Label className="SelectLabel">
+                    Workplace Type
+                  </Select.Label>
+                  <Select.Item value="On-site">On-site</Select.Item>
+                  <Select.Item value="Remote">Remote</Select.Item>
+                  <Select.Item value="Hybrid">Hybrid</Select.Item>
+                </Select.Viewport>
+              </Select.Content>
+            </Select.Portal>
+          </Select.Root>
         </div>
       </form>
     </div>
