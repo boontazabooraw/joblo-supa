@@ -10,6 +10,7 @@ import {
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
 import React from "react";
+import { Button } from "./ui/button";
 
 export default function AddForm({
   className,
@@ -121,6 +122,7 @@ export default function AddForm({
             />
           </label>
         </div>
+        <Button variant={"outline"} className="hover:bg-green-500 bg-green-400">Add</Button>
       </form>
     </div>
   );
