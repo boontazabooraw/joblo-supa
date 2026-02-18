@@ -3,13 +3,13 @@
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "./ui/input";
-import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as Select from "@radix-ui/react-select";
 import {
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
+import React from "react";
 
 export default function AddForm({
   className,
@@ -46,61 +46,80 @@ export default function AddForm({
             placeholder="https://danvillejobs.com"
           />
         </div>
-        <div className="workmode-wrapper">
-          <RadioGroup.Root>
-            <div>
-              <RadioGroup.Item
-                className="RadioGroupItem"
-                value="Full-time"
-                id="full-time"
-              >
-                <RadioGroup.Indicator className="RadioGroupIndicator" />
-              </RadioGroup.Item>
-              <label className="Label" htmlFor="full-time">
-                Full-time
-              </label>
+
+        <div className="workmode-wrapper flex gap-2 py-2">
+          <label
+            className="flex items-center p-2 border dark:border-white border-black rounded-lg cursor-pointer w-64 hover:bg-black/10 peer-checked:bg-black"
+            htmlFor="workmode1"
+          >
+            <div className="flex-grow">
+              <p className="text-md">Full-Time</p>
             </div>
-            <div>
-              <RadioGroup.Item
-                className="RadioGroupItem"
-                value="Part-time"
-                id="part-time"
-              >
-                <RadioGroup.Indicator className="RadioGroupIndicator" />
-              </RadioGroup.Item>
-              <label className="Label" htmlFor="part-time">
-                Part-time
-              </label>
+            <input
+              className="w-5 h-5 accent-slate-600"
+              type="radio"
+              name="workmode"
+              id="workmode1"
+            />
+          </label>
+          <label
+            className="flex items-center p-2 border dark:border-white border-black rounded-lg cursor-pointer w-64 hover:bg-black/10"
+            htmlFor="workmode2"
+          >
+            <div className="flex-grow">
+              <p className="text-md">Part-Time</p>
             </div>
-          </RadioGroup.Root>
+            <input
+              className="w-5 h-5 accent-slate-600"
+              type="radio"
+              name="workmode"
+              id="workmode2"
+            />
+          </label>
         </div>
-        <div className="workplacetype-wrapper">
-          <Select.Root>
-            <Select.Trigger
-              className="SelectTrigger"
-              aria-label="Work Arrangement"
-            >
-              <Select.Value placeholder="Select workplace type..." />
-              <Select.Icon className="SelectIcon">
-                <ChevronDownIcon />
-              </Select.Icon>
-            </Select.Trigger>
-            <Select.Portal>
-              <Select.Content className="SelectContent">
-                <Select.ScrollUpButton className="SelectScrollButton">
-                  <ChevronUpIcon />
-                </Select.ScrollUpButton>
-                <Select.Viewport className="SelectViewport">
-                  <Select.Label className="SelectLabel">
-                    Workplace Type
-                  </Select.Label>
-                  <Select.Item value="On-site">On-site</Select.Item>
-                  <Select.Item value="Remote">Remote</Select.Item>
-                  <Select.Item value="Hybrid">Hybrid</Select.Item>
-                </Select.Viewport>
-              </Select.Content>
-            </Select.Portal>
-          </Select.Root>
+        <div className="arrangement-wrapper flex gap-2">
+          <label
+            className="flex items-center p-2 border dark:border-white border-black rounded-lg cursor-pointer w-64 hover:bg-black/10"
+            htmlFor="arrangement1"
+          >
+            <div className="flex-grow">
+              <p className="text-md">On-site</p>
+            </div>
+            <input
+              className="w-5 h-5 accent-slate-600"
+              type="radio"
+              name="arrangement"
+              id="arrangement1"
+            />
+          </label>
+          <label
+            className="flex items-center p-2 border dark:border-white border-black rounded-lg cursor-pointer w-64 hover:bg-black/10"
+            htmlFor="arrangement2"
+          >
+            <div className="flex-grow">
+              <p className="text-md">Remote</p>
+            </div>
+            <input
+              className="w-5 h-5 accent-slate-600"
+              type="radio"
+              name="arrangement"
+              id="arrangement2"
+            />
+          </label>
+          <label
+            className="flex items-center p-2 border dark:border-white border-black rounded-lg cursor-pointer w-64 hover:bg-black/10"
+            htmlFor="arrangement3"
+          >
+            <div className="flex-grow">
+              <p className="text-md">Hybrid</p>
+            </div>
+            <input
+              className="w-5 h-5 accent-slate-600"
+              type="radio"
+              name="arrangement"
+              id="arrangement3"
+            />
+          </label>
         </div>
       </form>
     </div>

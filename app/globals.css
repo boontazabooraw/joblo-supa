@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 :root {
   --bg: rgb(222, 222, 217);
   --text: rgb(40, 40, 36);
